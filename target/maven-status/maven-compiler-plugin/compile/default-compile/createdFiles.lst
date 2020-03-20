@@ -1,0 +1,6 @@
+SelectableStartingRelic.class
+NeowEventPatches.class
+NeowEventPatches$AddSelectRelicButtons.class
+RunStartEndPatches.class
+RunStartEndPatches$EndOfRun.class
+NeowEventPatches$DisplaySelectableRelics.class
