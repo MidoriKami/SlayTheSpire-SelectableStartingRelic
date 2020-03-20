@@ -21,7 +21,7 @@ public class NeowEventPatches {
     public static int maxNumRelics = -1;
     public static boolean firstScreenSelection = true;
     private static int lastNextButtonPosition = 0;
-    private static int lastPage = -1;
+    private static int lastPage = 0;
 
     public static final Logger logger = LogManager.getLogger(SelectableStartingRelic.class.getName());
 
