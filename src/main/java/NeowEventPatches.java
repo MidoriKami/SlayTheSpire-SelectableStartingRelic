@@ -49,7 +49,6 @@ public class NeowEventPatches {
                 optionSelected = true;
 
                 AbstractDungeon.player.loseRelic(AbstractDungeon.player.relics.get(0).relicId);
-                AbstractDungeon.player.loseGold(AbstractDungeon.player.gold);
             }
 
             if (optionSelected) {
