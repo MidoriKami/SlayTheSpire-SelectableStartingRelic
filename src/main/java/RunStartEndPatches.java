@@ -9,6 +9,8 @@ public class RunStartEndPatches {
         @SpirePostfixPatch
         public static void Postfix(AbstractPlayer p) {
             NeowEventPatches.pageNumber = 0;
+            NeowEventPatches.optionSelected = false;
+            NeowEventPatches.firstScreenSelection = true;
         }
     }
 }
