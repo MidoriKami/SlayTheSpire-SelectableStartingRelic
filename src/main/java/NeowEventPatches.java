@@ -52,7 +52,6 @@ public class NeowEventPatches {
                 AbstractDungeon.player.loseGold(AbstractDungeon.player.gold);
             }
 
-            // Display Logic
             if (optionSelected) {
                 SetPage(e, 1);
                 ClearAllRoomEventTextOptions(e);
@@ -69,13 +68,10 @@ public class NeowEventPatches {
                 if ((8 * (pageNumber + 1)) < maxNumRelics) {
                     e.roomEventText.addDialogOption("[Next Page]");
                     lastNextButtonPosition = RoomEventDialog.optionList.size() - 1;
-
-                    logger.info("WE ARE NOT on the last page.");
                     pageNumber++;
                 } else {
                     e.roomEventText.addDialogOption("[Back to beginning of relic list]");
                     lastNextButtonPosition = RoomEventDialog.optionList.size() - 1;
-                    logger.info("WE ARE on the last page.");
                     lastPage = pageNumber;
                     pageNumber = 0;
                 }
