@@ -1,10 +1,14 @@
 {
   "modid": "SelectableStartingRelic",
   "name": "Selectable Starting Relic",
-  "author_list": ["MidoriKami"],
+  "author_list": [
+    "MidoriKami"
+  ],
   "description": "Allows you to choose which relic to start with.",
-  "version": "1.1.2",
+  "version": "1.2.1",
   "sts_version": "03-29-2018",
   "mts_version": "2.6.0",
-  "dependencies": ["basemod"]
+  "dependencies": [
+    "basemod"
+  ]
 }

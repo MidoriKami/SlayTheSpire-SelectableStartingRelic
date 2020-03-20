@@ -53,7 +53,7 @@ public class NeowEventPatches {
             }
 
             if (optionSelected && !selectionMade) {
-                SetPage(e, 4);
+                SetPage(e, 10);
                 ClearAllRoomEventTextOptions(e);
                 DismissBubble();
 
