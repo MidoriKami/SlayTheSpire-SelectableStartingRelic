@@ -11,6 +11,7 @@ public class RunStartEndPatches {
             NeowEventPatches.pageNumber = 0;
             NeowEventPatches.optionSelected = false;
             NeowEventPatches.firstScreenSelection = true;
+            NeowEventPatches.selectionMade = false;
         }
     }
 }

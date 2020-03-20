@@ -21,7 +21,8 @@ public class NeowEventPatches {
     public static int maxNumRelics = -1;
     public static boolean firstScreenSelection = true;
     private static int lastNextButtonPosition = 0;
-    private static int lastPage = 0;
+    private static int lastPage = -1;
+    public static boolean selectionMade = false;
 
     public static final Logger logger = LogManager.getLogger(SelectableStartingRelic.class.getName());
 
@@ -51,19 +52,27 @@ public class NeowEventPatches {
                 AbstractDungeon.player.loseRelic(AbstractDungeon.player.relics.get(0).relicId);
             }
 
-            if (optionSelected) {
-                SetPage(e, 1);
+            if (optionSelected && !selectionMade) {
+                SetPage(e, 4);
                 ClearAllRoomEventTextOptions(e);
                 DismissBubble();
 
                 if (buttonPressed != lastNextButtonPosition && !firstScreenSelection) {
+
+                    if (lastPage == -1)
+                        lastPage = 0;
+
                     AbstractDungeon.getCurrRoom().spawnRelicAndObtain((Settings.WIDTH / 2), (Settings.HEIGHT / 2), RelicLibrary.bossList.get(buttonPressed + (lastPage * 8)));
                     ClearAllRoomEventTextOptions(e);
                     OpenMap(e);
+                    e.roomEventText.addDialogOption("[Exit]");
+                    selectionMade = true;
+                    return;
                 }
 
                 AddRelicsInRange(e, 8 * pageNumber, 8 * (pageNumber + 1));
 
+                lastPage = pageNumber;
                 if ((8 * (pageNumber + 1)) < maxNumRelics) {
                     e.roomEventText.addDialogOption("[Next Page]");
                     lastNextButtonPosition = RoomEventDialog.optionList.size() - 1;
@@ -71,7 +80,6 @@ public class NeowEventPatches {
                 } else {
                     e.roomEventText.addDialogOption("[Back to beginning of relic list]");
                     lastNextButtonPosition = RoomEventDialog.optionList.size() - 1;
-                    lastPage = pageNumber;
                     pageNumber = 0;
                 }
             }
@@ -90,7 +98,7 @@ public class NeowEventPatches {
     }
 
     private static void ClearAllRoomEventTextOptions(AbstractEvent e) {
-        //e.roomEventText.clearRemainingOptions();
+        e.roomEventText.clearRemainingOptions();
         e.roomEventText.clear();
 
         //e.roomEventText.removeDialogOption(0);
